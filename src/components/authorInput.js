@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const StyledInput = styled.input.attrs((props) => ({
@@ -18,21 +18,32 @@ const StyledInput = styled.input.attrs((props) => ({
 `;
 
 const Wrap = styled.div`
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 32px;
+  gap: 32px;
 `;
 
 const Title = styled.h2`
   font-size: 1rem;
   text-align: center;
   color: #000000;
-  float: left;
 `;
 
 const AuthorInput = () => {
+  const [text, setText] = useState("");
+
+  const onChange = (e) => {
+    setText(e.target.value);
+    console.log(text);
+  };
+
   return (
     <Wrap>
       <Title>Author</Title>
-      <StyledInput type="text" />
+      <StyledInput type="text" onChange={onChange} />
     </Wrap>
   );
 };
