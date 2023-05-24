@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../components/header";
 import styled from "styled-components";
-import AuthorInput from "../components/authorInput";
+import Input from "../components/Input";
 
 const Wrapper = styled.section`
   padding: 4em;
@@ -11,10 +11,13 @@ const Wrapper = styled.section`
 
 const DiaryEditor = () => {
   const [author, setAuthor] = useState("");
+  const [mood, setMood] = useState("");
+
   return (
     <Wrapper>
       <Header children={"My Daily Moods"} />
-      <AuthorInput />
+      <Input text={author} setText={setAuthor} title="Author" />
+      <Input text={mood} setText={setMood} title="Today's mood" />
     </Wrapper>
   );
 };

@@ -32,9 +32,7 @@ const Title = styled.h2`
   color: #000000;
 `;
 
-const AuthorInput = () => {
-  const [text, setText] = useState("");
-
+const Input = ({ text, setText, inputSize, title }) => {
   const onChange = (e) => {
     setText(e.target.value);
     console.log(text);
@@ -42,10 +40,10 @@ const AuthorInput = () => {
 
   return (
     <Wrap>
-      <Title>Author</Title>
+      <Title>{title}</Title>
       <StyledInput type="text" onChange={onChange} />
     </Wrap>
   );
 };
 
-export default AuthorInput;
+export default Input;
